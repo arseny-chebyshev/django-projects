@@ -1,0 +1,22 @@
+{% extends 'base_menu.html' %}
+{% block content %}
+<div style="width: 60%">
+<details>
+<summary>What does this app do?</summary>
+This App automatically sets a few custom cookies to user.
+The visit count cookie keeps to increase every time you refresh the page until it
+hits the count of 3. Then it reboots back to 1.
+The Temporary Cookie is set to expire after 10 seconds of not refreshing the page.
+It is going to stay with not-None value as far as you reload the page in quicker
+than 10 seconds.
+Give it a try and reload the page!
+</details>
+<h1>Sessions</h1>
+<div>
+In a view - the Temporary Cookie value is <strong>{{ old_cookie }}</strong>.
+It should be 63c94b74!
+</div>
+<div>
+Visit count: <strong>{{ visits }}</strong>
+</div>
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends 'base_menu.html' %}
+
+
+{% block content %}
+<div style="width: 60%">
+<details>
+  <summary>What does this app do?</summary>
+    Here I tried to implement creating and saving ORM objects (cats and breeds)
+    to the database. The app has support for user CRUD operations,
+    and checks if there any cats/breeds in the database already.
+    Dynamically renders page on the above conditions.
+</details>
+</div>
+<h1>Cats List</h1>
+
+
+    {% if cat_list %}
+        <ul>
+        {% for cat in cat_list %}
+        <li>
+            {{ cat.nickname }} ({{ cat.breed }})
+            (<a href="{% url 'cats:cat_update' cat.id %}">Update</a> |
+            <a href="{% url 'cats:cat_delete' cat.id %}">Delete</a>)
+            </br>
+            {{cat.foods}} | {{cat.weight}}kg
+        </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>There are no cats in the library.</p>
+    {% endif %}
+
+
+    <p>
+    {% if breed_count > 0 %}
+        <a href="{% url 'cats:cat_create' %}">Add a cat</a>
+    {% else %}
+        <p>Please add a breed before you add a cat. </p>
+    {% endif %}
+    </p>
+
+
+    <p>
+        <a href="{% url 'cats:breed_list' %}">View breeds</a> ({{ breed_count}}) |
+        <a href="{% url 'cats:breed_create' %}">Add a breed</a>
+    </p>
+
+{% endblock %}

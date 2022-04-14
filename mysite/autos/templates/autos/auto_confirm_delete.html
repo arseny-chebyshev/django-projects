@@ -1,0 +1,10 @@
+{% extends "base_menu.html" %}
+{% block content %}
+<h1>Delete Auto</h1>
+<p>Are you sure you want to delete the auto: {{ auto }}?</p>
+<form type action="" method="POST">
+    {% csrf_token %}
+    <input type="submit" value="Yes, delete">
+    <input type="button" value="Cancel" onclick="window.location='{% url 'autos:all' %}'">
+</form>
+{% endblock %}

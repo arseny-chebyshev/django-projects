@@ -1,0 +1,53 @@
+{% extends "base_menu.html" %}
+{% load static %}
+{% block content %}
+  <h1>Welcome to the {{ settings.APP_NAME }}!</h1>
+  <h2>What is this project?</h2>
+  <figure style="margin-top: 20px; float: right; text-align: center; width: 30%">
+  <img style="border-radius: 50%; width: 300px; height: 300px"
+  src="{% static 'space_python.jpg' %}">
+  <figcaption style="font-weight: bold; padding: 5px">"Django Python Pet in Space",
+  according to <a href="https://app.wombo.art/">WOMBO AI</a></figcaption>
+  </figure>
+  <div style="width: 60%; margin-top: 20px">
+  <p>This site is a pet project made with help of
+  <a href="https://www.dj4e.com/">"Django For Everybody"</a> University of
+  Michigan's Course lead by Charles R. Severance. It covers most of Django base
+  features and follows architectural pattern of Model-View-Controller
+  (Model-Template-View in Django philosophy).
+  </p>
+  <strong>Most of the work done here implements Backend Technologies, such as:
+  </strong>
+  <ul>
+      <li>Linux Ubuntu OS server environment (bash)</li>
+      <li>MySQL server database (migrated from SQLite3)</li>
+      <li>Python</li>
+      <li>Django Framework</li>
+      <li>Django ORM</li>
+      <li>Django Template Language</li>
+      <li>Sessions mechanism, cookies</li>
+      <li>Client-side caching</li>
+      <li>Django Middlewares (authentification system, CSRF-token cookies)</li>
+      <li>BLOB Objects uploading by users, verifications</li>
+      <li>Social Networks log-in</li>
+  </ul>
+  <strong>Over the Front-End, some other technologies are involved:</strong>
+  <ul>
+      <li>HTML, CSS</li>
+      <li>Ruby features implementations for Python, such as Haml and SaSS
+      preprocessors (django-hamlpy extension)</li>
+      <li>Bootstrap</li>
+      <li>JavaScript, JQuery, parallax.js</li>
+  </ul>
+  </div>
+  <p>You may visit any of Django Apps I have created on this site using top
+  navigation bar. Enjoy!</p>
+  <div>
+    {% if user.is_authenticated %}
+      <a href="{% url 'logout' %}?next={% url 'main' %}">Logout</a>
+    {% else %}
+      <a href="{% url 'login' %}?next={% url 'main' %}">Login</a>
+    {% endif %} | <a href="https://github.com/arseny-chebyshev/django-projects">
+        GitHub</a>
+  </div>
+{% endblock content %}

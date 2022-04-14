@@ -1,0 +1,22 @@
+{% extends 'base_menu.html' %}
+{% block content %}
+<div style="width: 60%">
+<details>
+  <summary>What does this app do?</summary>
+    This app is a part of standard Django tutorial. Since Django tutorial assumes
+    creating polls ORM objects only manually through terminal, this page is
+    supposed to be empty until I decide to create poll objects manually with
+    Django's Python shell (a.k.a. "python manage.py shell").
+</details>
+</div>
+<h1>Polls List</h1>
+{% if latest_question_list %}
+    <ul>
+    {% for question in latest_question_list %}
+        <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}
+{% endblock %}
