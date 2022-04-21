@@ -1,5 +1,6 @@
-# Quick Overview over project folders
-<p><a href="https://arsenychebyshev.pythonanywhere.com/">mysite<a> is a pet website implementing Backend Functionality built with slice of help of "Django for Everybody" Course Tutorials and a lot of net research.</p>
+# Quick Overview
+This project is a source code that runs my <a href="https://arsenychebyshev.pythonanywhere.com/">DjangoPet</a> website.
+<p>It is a pet website implementing Backend Functionality built with slice of help of "Django for Everybody" Course Tutorials and a lot of net research.</p>
 <p>The functionality of the site covers most of the Backend Development necessities,
 such as building a code architecture, connecting databases to the controllers,
 filtering data, securing it for end-user interfaces, processing templates server-side,
