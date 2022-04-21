@@ -17,7 +17,8 @@ user_apps = ['home.apps.HomeConfig',
     'autos.apps.AutosConfig',
     'cats.apps.CatsConfig',
     'polls.apps.PollsConfig',
-    'user_sessions.apps.UserSessionsConfig'
+    'user_sessions.apps.UserSessionsConfig',
+    'rest.apps.RestConfig'
     ]
 
 django_and_extensions = ['django.contrib.admin',
@@ -76,6 +77,15 @@ TEMPLATES = [
     },
 ]
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ),
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 10
+}
+
 WSGI_APPLICATION = 'mysite.wsgi.application'
 
 """Migrated from SQLite database to MySQL server below
@@ -127,12 +137,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework.authentication.BasicAuthentication',
-        'rest_framework.authentication.SessionAuthentication',
-    )
-}
 
 # include social login with GitHub
 try:

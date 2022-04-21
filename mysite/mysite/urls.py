@@ -6,16 +6,18 @@ from django.conf.urls import url
 from django.contrib.auth import views as auth_views
 from django.views.static import serve
 
+
 urlpatterns = [
-    path('', include('home.urls')),  # Change to ads.urls
-    path('admin/', admin.site.urls),  # Keep
-    path('accounts/', include('django.contrib.auth.urls')),  # Keep
-    url(r'^oauth/', include('social_django.urls', namespace='social')),  # Keep
+    path('', include('home.urls')),
+    path('admin/', admin.site.urls),
+    path('accounts/', include('django.contrib.auth.urls')),
+    url(r'^oauth/', include('social_django.urls', namespace='social')),
     path('ads/', include('ads.urls')),
     path('autos/', include('autos.urls')),
     path('cats/', include('cats.urls')),
     path('polls/', include('polls.urls')),
     path('sessions/', include('user_sessions.urls')),
+    path('rest/', include('rest.urls')),
     ]
 
 # Serve the static HTML
